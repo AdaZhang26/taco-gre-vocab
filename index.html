@@ -111,7 +111,8 @@ body[data-view="study"] #bottomnav{display:none}
 .exlabel{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin:16px 0 6px}
 .ex{font-size:15px;line-height:1.55;color:var(--ink2);font-style:italic}
 .revealbtn{margin-top:22px;width:100%;padding:16px;border-radius:14px;border:1px solid var(--green);background:transparent;color:var(--green);font-size:15.5px;font-weight:700;cursor:pointer;font-family:var(--sans)}
-.speak{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:var(--bg);border:1px solid var(--line);color:var(--ink2);border-radius:99px;width:46px;height:46px;font-size:19px;cursor:pointer}
+.speak{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px auto 0;background:var(--card);border:1px solid var(--line);color:var(--ink2);border-radius:99px;padding:12px 22px;font-size:15px;font-weight:600;font-family:var(--sans);cursor:pointer}
+.speak span{font-size:18px;line-height:1}
 .actions{display:flex;gap:12px;margin-top:14px}
 .actions button{flex:1;padding:17px;border:0;border-radius:14px;font-size:15.5px;font-weight:700;cursor:pointer;color:#fff;font-family:var(--sans)}
 .btn-no{background:var(--terra)}
@@ -352,8 +353,9 @@ function renderStudy(){
     '<div class="answer" '+(showAns?'':'style="display:none"')+'><div class="deflabel">Definition</div><div class="def">'+esc(m.def)+'</div>'+
       '<div class="exlabel">Example</div><div class="ex">'+esc(m.ex)+'</div></div>'+
     (showAns?'':'<button class="revealbtn" onclick="reveal()">Tap to reveal definition</button>')+
-    '<button class="speak" onclick="speak()" title="Pronounce">&#128266;</button></div>'+
-  (showAns?'<div class="actions"><button class="btn-no" onclick="grade(false)">&#10007; Didn\'t know</button><button class="btn-yes" onclick="grade(true)">&#10003; Knew it</button></div>':'');
+    '</div>'+
+  (showAns?'<div class="actions"><button class="btn-no" onclick="grade(false)">&#10007; Didn\'t know</button><button class="btn-yes" onclick="grade(true)">&#10003; Knew it</button></div>':'')+
+  '<button class="speak" onclick="speak()" title="Pronounce"><span>&#128266;</span> Pronounce</button>';
 }
 
 let wordFilter='';
